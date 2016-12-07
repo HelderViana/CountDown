@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--<HTA:APPLICATION ICON=simple.ico sysMenu=no>-->
+    <HTA:Application Border = Thick BorderStyle = Complex ShowInTaskBar = No MaximizeButton = No MinimizeButton = No>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free coming soon template with jQuery countdown">
+    <meta name="author" content="http://bootstraptaste.com">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <title>CountDown</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+	  <link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- siimple style -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+	<div id="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<h1>Title here!</h1>
+					<h2 class="subtitle" id="subtitle">Subtitle here...</h2>
+				</div>				
+			</div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">          
+          <div id="countdown"></div>                        
+        </div>        
+      </div>
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+						<p class="copyright"><a href="http://www.domain1.com">Domain 1</a> | <a href="https://domain2.com">Domain 2</a> | <a href="https://domain3.com">Domain 3</a></p>            
+                        
+                        <!-- 
+                            All links in the footer should remain intact. 
+                            Licenseing information is available at: http://bootstraptaste.com/license/
+                            You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=WeBuild
+                        -->
+				</div>
+			</div>		
+		</div>
+	</div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.countdown.min.js"></script>
+	<script type="text/javascript">
+  // Counter:
+  $('#countdown').countdown('2016/01/26 14:30:00')
+    .on('update.countdown', function(event) {
+      var format;
+      format = 'Faltam %-d dias %-Hh %Mm %Ss';
+
+      $(this).html(event.strftime(format));
+    })
+    .on('finish.countdown', function(event) {
+      $(this).html('<a href="http://intranet.contoso.com" title="Intranet">Intranet</a>');      
+    });
+
+  // Alterar o texto do subtitle:
+  $('#subtitle').countdown('2016/01/26 14:30:00')
+    .on('finish.countdown', function(event) {
+      $(this).html('Chegou a nova intranet!');      
+  });
+
+</script>
+  </body>
+</html>
